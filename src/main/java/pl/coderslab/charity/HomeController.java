@@ -2,6 +2,7 @@ package pl.coderslab.charity;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -24,7 +25,7 @@ public class HomeController {
         this.institutionService = institutionService;
     }
 
-    @RequestMapping("/")
+    @GetMapping("/index")
     public String homeAction(Model model){
         model.addAttribute("sumOfQuantities", donationService.sumOfQuantities());
         model.addAttribute("sumOfDonations", donationService.sumOfDonations());
@@ -32,7 +33,7 @@ public class HomeController {
     }
 
 
-    @RequestMapping("/form")
+    @GetMapping("/form")
     public String homeActionTEst(Model model){
         return "form";
     }

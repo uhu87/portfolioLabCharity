@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html lang="pl">
 
-<%@include file="header.jsp" %>
+<%@include file="/home/uhu_s/Downloads/portfolioLabCharity/portfolioLabCharity/src/main/webapp/WEB-INF/views/header.jsp" %>
 
 
   <body>
@@ -338,6 +338,6 @@
         </div>
       </div>
     </footer>
-    <script src="<c:url value="js/app.js"/>"></script>
+    <script src="<c:url value="resources/js/app.js"/>"></script>
   </body>
 </html>
