@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/donation")
 public class DonationController {
 
     @GetMapping("/addDonation")
@@ -18,6 +17,11 @@ public class DonationController {
     @GetMapping("/addDonation2")
     public String addDonation2(){
         return "donation/donationForm";
+    }
+
+    @GetMapping("/donation/addDonation3")
+    public String addDonation3(){
+        return "form";
     }
 
 }
