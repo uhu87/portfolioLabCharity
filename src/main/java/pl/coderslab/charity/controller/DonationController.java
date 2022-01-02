@@ -14,4 +14,10 @@ public class DonationController {
         return "form";
     }
 
+
+    @GetMapping("/addDonation2")
+    public String addDonation2(){
+        return "donation/donationForm";
+    }
+
 }

@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html lang="pl">
 
-<%@include file="header.jsp" %>
+<jsp:include page="/WEB-INF/views/header.jsp"/>
 
 
   <body>
