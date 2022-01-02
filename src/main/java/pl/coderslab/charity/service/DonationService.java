@@ -21,4 +21,12 @@ public class DonationService {
         return donationRepository.findAll();
     }
 
+
+    public int sumOfQuantities(){
+        return donationRepository.sumOfQuantities(1l);
+    }
+
+    public int sumOfDonations(){
+        return donationRepository.sumOfDonations(1l);
+    }
 }

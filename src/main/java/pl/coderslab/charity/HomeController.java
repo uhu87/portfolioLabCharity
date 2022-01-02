@@ -26,6 +26,8 @@ public class HomeController {
 
     @RequestMapping("/")
     public String homeAction(Model model){
+        model.addAttribute("sumOfQuantities", donationService.sumOfQuantities());
+        model.addAttribute("sumOfDonations", donationService.sumOfDonations());
         return "index";
     }
 
@@ -41,6 +43,7 @@ public class HomeController {
     public String allDonations(Model model){
         return ""+donationService.findAll();
     }
+
 
     @ModelAttribute("institutions")
     public List<Institution> institutions(){
