@@ -2,6 +2,7 @@ package pl.coderslab.charity.service;
 
 
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import pl.coderslab.charity.entity.Institution;
 import pl.coderslab.charity.repository.InstitutionRepository;
 
@@ -22,4 +23,6 @@ public class InstitutionService {
     public List<Institution> findAll(){
         return institutionRepository.findAll();
     }
+
+
 }

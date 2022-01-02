@@ -1,13 +1,12 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
-<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="pl">
 
 
 <%@include file="header.jsp" %>
-<%@include file="footer.jsp" %>
 
 
 <body>
@@ -105,56 +104,35 @@
         <p>W naszej bazie znajdziesz listę zweryfikowanych Fundacji, z którymi współpracujemy.
             Możesz sprawdzić czym się zajmują.</p>
 
+
         <ul class="help--slides-items">
-            <li>
-                <div class="col">
-                    <div class="title">Fundacja "Dbam o Zdrowie"</div>
-                    <div class="subtitle">Cel i misja: Pomoc dzieciom z ubogich rodzin.</div>
-                </div>
+            <c:forEach items="${institutions}" var="i" step="2" varStatus="loopStatus">
+                <li>
+                    <div class="col">
+                        <div class="title">Fundacja "${institutions[loopStatus.index].name}"</div>
+                        <div class="subtitle">"${institutions[loopStatus.index].description}"</div>
+                    </div>
 
-                <div class="col">
-                    <div class="title">Fundacja "A kogo"</div>
-                    <div class="subtitle">Cel i misja: Pomoc wybudzaniu dzieci ze śpiączki.</div>
-                </div>
-            </li>
+                    <c:choose>
+                        <c:when test="${institutions[loopStatus.index+1].name != null}">
+                            <div class="col">
+                                <div class="title">Fundacja "${institutions[loopStatus.index+1].name}"</div>
+                                <div class="subtitle">"${institutions[loopStatus.index+1].description}"</div>
+                            </div>
+                        </c:when>
+                        <c:otherwise>
+                            <div class="">
+                            </div>
+                        </c:otherwise>
+                    </c:choose>
 
-            <li>
-                <div class="col">
-                    <div class="title">Fundacja “Dla dzieci"</div>
-                    <div class="subtitle">Cel i misja: Pomoc osobom znajdującym się w trudnej sytuacji życiowej.</div>
-                </div>
-                <div class="col">
-                    <div class="title">Fundacja “Bez domu”</div>
-                    <div class="subtitle">Cel i misja: Pomoc dla osób nie posiadających miejsca zamieszkania</div>
-                </div>
-
-            </li>
-
+                </li>
+            </c:forEach>
         </ul>
     </div>
 
 </section>
 
-<footer>
-    <div class="contact">
-        <h2>Skontaktuj się z nami</h2>
-        <h3>Formularz kontaktowy</h3>
-        <form class="form--contact">
-            <div class="form-group form-group--50"><input type="text" name="name" placeholder="Imię"/></div>
-            <div class="form-group form-group--50"><input type="text" name="surname" placeholder="Nazwisko"/></div>
-
-            <div class="form-group"><textarea name="message" placeholder="Wiadomość" rows="1"></textarea></div>
-
-            <button class="btn" type="submit">Wyślij</button>
-        </form>
-    </div>
-    <div class="bottom-line">
-        <span class="bottom-line--copy">Copyright &copy; 2018</span>
-        <div class="bottom-line--icons">
-            <a href="#" class="btn btn--small"><img src="<c:url value="resources/images/icon-facebook.svg"/>"></a>
-            <a href="#" class="btn btn--small"><img src="<c:url value ="resources/images/icon-instagram.svg"/>"></a>
-        </div>
-    </div>
-</footer>
+<%@include file="footer.jsp" %>
 
 
