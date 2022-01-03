@@ -1,10 +1,13 @@
 package pl.coderslab.charity.entity;
 
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import javax.validation.constraints.Size;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.List;
 
 @Entity
@@ -29,9 +32,10 @@ public class Donation {
 
     private String zipCode;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate pickUpDate;
 
-    private LocalDateTime pickUpTime;
+    private LocalTime pickUpTime;
 
     private String pickUpComment;
 
@@ -39,7 +43,7 @@ public class Donation {
     public Donation() {
     }
 
-    public Donation(Long id, Integer quantity, List<Category> categories, Institution institution, String street, String city, String zipCode, LocalDate pickUpDate, LocalDateTime pickUpTime, String pickUpComment) {
+    public Donation(Long id, Integer quantity, List<Category> categories, Institution institution, String street, String city, String zipCode, LocalDate pickUpDate, LocalTime pickUpTime, String pickUpComment) {
         this.id = id;
         this.quantity = quantity;
         this.categories = categories;
@@ -116,11 +120,11 @@ public class Donation {
         this.pickUpDate = pickUpDate;
     }
 
-    public LocalDateTime getPickUpTime() {
+    public LocalTime getPickUpTime() {
         return pickUpTime;
     }
 
-    public void setPickUpTime(LocalDateTime pickUpTime) {
+    public void setPickUpTime(LocalTime pickUpTime) {
         this.pickUpTime = pickUpTime;
     }
 
@@ -132,17 +136,5 @@ public class Donation {
         this.pickUpComment = pickUpComment;
     }
 
-    @Override
-    public String toString() {
-        return "Donation{quantity=" + quantity +
-                ", categories=" + categories +
-                ", institution=" + institution +
-                ", street='" + street + '\'' +
-                ", city='" + city + '\'' +
-                ", zipCode='" + zipCode + '\'' +
-                ", pickUpDate=" + pickUpDate +
-                ", pickUpTime=" + pickUpTime +
-                ", pickUpComment='" + pickUpComment + '\'' +
-                '}';
-    }
+
 }

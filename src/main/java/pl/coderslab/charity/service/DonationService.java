@@ -23,10 +23,10 @@ public class DonationService {
 
 
     public int sumOfQuantities(){
-        return donationRepository.sumOfQuantities(1l);
+        return donationRepository.sumOfQuantities();
     }
 
     public int sumOfDonations(){
-        return donationRepository.sumOfDonations(1l);
+        return donationRepository.sumOfDonations();
     }
 }

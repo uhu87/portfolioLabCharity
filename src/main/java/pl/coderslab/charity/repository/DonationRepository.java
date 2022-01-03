@@ -8,11 +8,20 @@ import pl.coderslab.charity.entity.Donation;
 
 @Repository
 public interface DonationRepository extends JpaRepository<Donation, Long> {
+    @Query(value = "select sum(quantity) from donation", nativeQuery = true)
+    int sumOfQuantities ();
+
+
+    @Query(value = "select count(*) from donation", nativeQuery = true)
+    int sumOfDonations ();
+
+}
+
+
+/*
     @Query(value = "select sum(quantity) from donation where user_id=:givenId", nativeQuery = true)
     int sumOfQuantities (@Param("givenId") Long id);
 
 
     @Query(value = "select count(*) from donation where user_id=:givenId", nativeQuery = true)
-    int sumOfDonations (@Param("givenId") Long id);
-
-}
+    int sumOfDonations (@Param("givenId") Long id);*/
