@@ -39,11 +39,20 @@ public class Donation {
 
     private String pickUpComment;
 
+    private String phone;
 
     public Donation() {
     }
 
-    public Donation(Long id, Integer quantity, List<Category> categories, Institution institution, String street, String city, String zipCode, LocalDate pickUpDate, LocalTime pickUpTime, String pickUpComment) {
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public Donation(Long id, Integer quantity, List<Category> categories, Institution institution, String street, String city, String zipCode, LocalDate pickUpDate, LocalTime pickUpTime, String pickUpComment, String phone) {
         this.id = id;
         this.quantity = quantity;
         this.categories = categories;
@@ -54,6 +63,7 @@ public class Donation {
         this.pickUpDate = pickUpDate;
         this.pickUpTime = pickUpTime;
         this.pickUpComment = pickUpComment;
+        this.phone = phone;
     }
 
     public Long getId() {

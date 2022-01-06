@@ -164,6 +164,12 @@ document.addEventListener("DOMContentLoaded", function() {
       this.$step.parentElement.hidden = this.currentStep >= 5;
 
       // TODO: get data from inputs and show them in summary
+
+
+      const formFields = event.currentTarget.elements;
+
+      formFields.length;
+
     }
 
   }

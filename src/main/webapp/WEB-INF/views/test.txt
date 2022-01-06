@@ -1,0 +1,7 @@
+              <form:input path="zipCode" />
+              <form:input path="street" />
+              <form:input path="city"/>
+              <form:input type="number" path="quantity"/>
+              <form:textarea path="pickUpComment"/>
+              <form:input type="date" path="pickUpDate"/>
+              <form:input type="time" path="pickUpTime" />

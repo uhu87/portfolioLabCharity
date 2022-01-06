@@ -36,6 +36,7 @@ public class DonationController {
     @GetMapping("/addDonation")
     public String addDonation(Model model){
         model.addAttribute("donation", new Donation());
+
         return "form";
     }
     @PostMapping("/addDonation")
@@ -59,9 +60,6 @@ public class DonationController {
         return institutionService.findAll();
     }
 }
-
-
-
 
 
 /*    @GetMapping("/addDonation2")
