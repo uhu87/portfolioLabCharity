@@ -166,11 +166,18 @@ document.addEventListener("DOMContentLoaded", function() {
       const institution = document.getElementById("institution");
       const results = document.querySelectorAll("#institutionResult")
 
-      for (let i = 0; i < results.length; i++) {
-        if(results[i].checked===true){
-          institution.innerText=results[i].innerText;
-        }
-      }
+      results.forEach(
+          result=>{
+            result.addEventListener('click', function (event){
+              institution.innerText=event.currentTarget.innerText;
+            })
+          }
+      )
+
+
+
+
+
 
 
       this.$stepInstructions[0].parentElement.parentElement.hidden = this.currentStep >= 5;

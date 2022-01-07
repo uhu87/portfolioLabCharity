@@ -86,7 +86,7 @@
 
 
           <!-- STEP 4 -->
-          <div data-step="3" id="institutionResult">
+          <div data-step="3">
             <h3>Wybierz organizacje, której chcesz pomóc:</h3>
 
 
