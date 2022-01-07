@@ -174,17 +174,23 @@ document.addEventListener("DOMContentLoaded", function() {
           }
       )
 
+      const formData = document.querySelectorAll("div.form-section--column");
+      const column1 = formData[2].querySelectorAll('li')
+      column1[0].innerText=document.getElementById("street").value;
+      column1[1].innerText=document.getElementById("city").value;
+      column1[2].innerText=document.getElementById("zipCode").value;
+      column1[3].innerText=document.getElementById("phone").value;
 
-
-
-
+      const column2 = formData[3].querySelectorAll('li')
+      column2[0].innerText=document.getElementById("pickUpDate").value;
+      column2[1].innerText=document.getElementById("pickUpTime").value;
+      column2[2].innerText=document.getElementById("pickUpComment").value;
 
 
       this.$stepInstructions[0].parentElement.parentElement.hidden = this.currentStep >= 5;
       this.$step.parentElement.hidden = this.currentStep >= 5;
 
       // TODO: get data from inputs and show them in summary
-
 
     }
   }

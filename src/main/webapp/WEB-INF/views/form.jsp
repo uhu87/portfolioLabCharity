@@ -188,7 +188,7 @@
                 <div class="form-section--column">
                   <h4>Adres odbioru:</h4>
                   <ul>
-                    <li>idProsta 51</li>
+                    <li>Prosta 51</li>
                     <li>Warszawa</li>
                     <li>99-098</li>
                     <li>123 456 789</li>
