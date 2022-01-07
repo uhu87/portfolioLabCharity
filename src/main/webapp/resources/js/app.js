@@ -160,18 +160,26 @@ document.addEventListener("DOMContentLoaded", function() {
         }
       });
 
+      const quantity = document.getElementById("quantity-result");
+      quantity.innerText=document.getElementById("quantity").value;
+
+      const institution = document.getElementById("institution");
+      const results = document.querySelectorAll("#institutionResult")
+
+      for (let i = 0; i < results.length; i++) {
+        if(results[i].checked===true){
+          institution.innerText=results[i].innerText;
+        }
+      }
+
+
       this.$stepInstructions[0].parentElement.parentElement.hidden = this.currentStep >= 5;
       this.$step.parentElement.hidden = this.currentStep >= 5;
 
       // TODO: get data from inputs and show them in summary
 
 
-      const formFields = event.currentTarget.elements;
-
-      formFields.length;
-
     }
-
   }
   const form = document.querySelector(".form--steps");
   if (form !== null) {

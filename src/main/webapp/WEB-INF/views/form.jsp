@@ -42,21 +42,6 @@
           <div data-step="1" class="active">
             <h3>Zaznacz co chcesz oddać:</h3>
 
-          <%--  <form:form modelAttribute="donation">
-
-              <form:checkboxes path="categories" items="${categories}" itemLabel="name" itemValue="id"/>
-              <form:select path="institution" items="${institutions}" itemLabel="name" itemValue="id"/>
-              <form:input path="zipCode" />
-              <form:input path="street" />
-              <form:input path="city"/>
-              <form:input type="number" path="quantity"/>
-              <form:textarea path="pickUpComment"/>
-              <form:input type="date" path="pickUpDate"/>
-              <form:input type="time" path="pickUpTime" />
-              <input type="submit" value="SAVE DONATION"><br/>
-            </form:form>--%>
-
- <%--           <form:checkboxes path="categories" items="${categories}" itemLabel="name" itemValue="id"/>--%>
 
             <c:forEach items="${categories}" var="c">
               <div class="form-group form-group--checkbox">
@@ -87,7 +72,7 @@
             <div class="form-group form-group--inline">
               <label>
                 Liczba 60l worków:
-                <form:input type="number" path="quantity"/>
+                <form:input id="quantity" type="number" name="bags" path="quantity" step="1" min="1"/>
                <%-- <input type="number" name="bags" step="1" min="1" />--%>
               </label>
             </div>
@@ -101,17 +86,17 @@
 
 
           <!-- STEP 4 -->
-          <div data-step="3">
+          <div data-step="3" id="institutionResult">
             <h3>Wybierz organizacje, której chcesz pomóc:</h3>
 
 
             <c:forEach items="${institutions}" var="v">
-              <div class="form-group form-group--checkbox">
+              <div class="form-group form-group--checkbox" id="institutionResult">
                 <label>
                   <form:radiobutton path="institution"  value="${v.id}" />
                   <span class="checkbox radio"></span>
                   <span class="description">
-                  <div class="title">Fundacja: "${v.name}"</div>
+                  <div class="title" >Fundacja: "${v.name}"</div>
                   <div class="subtitle">
                     ${v.description}
                   </div>
@@ -185,15 +170,15 @@
                 <ul>
                   <li>
                     <span class="icon icon-bag"></span>
-                    <span class="summary--text"
-                      >4 worki ubrań w dobrym stanie dla dzieci</span
+                    <span class="summary--text" id="quantity-result"
+                      ></span
                     >
                   </li>
 
                   <li>
                     <span class="icon icon-hand"></span>
-                    <span class="summary--text"
-                      >Dla fundacji "Mam marzenie" w Warszawie</span
+                    <span class="summary--text" id="institution"
+                      ></span
                     >
                   </li>
                 </ul>
@@ -203,7 +188,7 @@
                 <div class="form-section--column">
                   <h4>Adres odbioru:</h4>
                   <ul>
-                    <li>Prosta 51</li>
+                    <li>idProsta 51</li>
                     <li>Warszawa</li>
                     <li>99-098</li>
                     <li>123 456 789</li>
