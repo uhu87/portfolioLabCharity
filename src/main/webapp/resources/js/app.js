@@ -160,6 +160,13 @@ document.addEventListener("DOMContentLoaded", function() {
         }
       });
 
+      /*const categories = document.getElementsByName("categories");
+      for (let i = 0; i < categories.length; i++) {
+        categories[i].nextElementSibling.remove(categories);
+      }*/
+
+
+
       const quantity = document.getElementById("quantity-result");
       quantity.innerText=document.getElementById("quantity").value;
 

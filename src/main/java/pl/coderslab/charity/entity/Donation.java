@@ -2,9 +2,10 @@ package pl.coderslab.charity.entity;
 
 
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.NumberFormat;
 
 import javax.persistence.*;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -17,28 +18,44 @@ public class Donation {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotNull(message = "Musisz podać ilość worków")
+    @Min(value=1, message = "Musisz przekazać co najmniej jeden worek")
     private Integer quantity;
 
     @ManyToMany
     @JoinTable(name = "donation_categories")
+    @NotEmpty(message = "wybierz co najmniej jedną kategorię")
     private List<Category>categories;
 
+
     @ManyToOne
+    @NotNull(message = "Musisz wybrać instytucję")
     private Institution institution;
 
+    @NotEmpty(message = "Pole wymagane")
+    @Size(max = 255, message = "Pole nie może przekraczać 255 znaków")
     private String street;
 
+    @NotEmpty(message = "Pole wymagane")
+    @Size(max = 255, message = "Pole nie może przekraczać 255 znaków")
     private String city;
 
+    @NotEmpty(message = "Pole wymagane")
+    @Size(max = 20, message = "Pole nie może przekraczać 20 znaków")
     private String zipCode;
 
+    @NotNull(message = "Podaj datę odbioru")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @Future(message = "Podaj datę w przyszłości")
     private LocalDate pickUpDate;
 
+    @NotNull(message = "Podaj godzinę odbioru")
     private LocalTime pickUpTime;
 
+    @Size(max = 255, message = "Pole nie może przekraczać 255 znaków")
     private String pickUpComment;
 
+    @NotEmpty(message = "Pole wymagane")
     private String phone;
 
     public Donation() {

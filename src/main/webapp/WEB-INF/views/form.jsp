@@ -41,8 +41,7 @@
           <!-- STEP 1: class .active is switching steps -->
           <div data-step="1" class="active">
             <h3>Zaznacz co chcesz oddać:</h3>
-
-
+            <form:errors path="categories" cssClass="error" cssStyle="color: darkred; background: #ebebeb" element="div"/>
             <c:forEach items="${categories}" var="c">
               <div class="form-group form-group--checkbox">
                 <label>
@@ -50,7 +49,6 @@
                           value="${c.id}"
                           path="categories"
                   />
-                 <%-- <input type="hidden" name="_categories" value="on">--%>
                   <span class="checkbox"></span>
                   <span class="description"
                   >${c.name}</span
@@ -73,8 +71,8 @@
               <label>
                 Liczba 60l worków:
                 <form:input id="quantity" type="number" name="bags" path="quantity" step="1" min="1"/>
-               <%-- <input type="number" name="bags" step="1" min="1" />--%>
               </label>
+              <form:errors path="quantity" cssClass="error" cssStyle="color: darkred; background: #ebebeb" element="div"/>
             </div>
 
             <div class="form-group form-group--buttons">
@@ -89,6 +87,7 @@
           <div data-step="3">
             <h3>Wybierz organizacje, której chcesz pomóc:</h3>
 
+            <form:errors path="institution" cssClass="error" cssStyle="color: darkred; background: #ebebeb"  element="div"/>
 
             <c:forEach items="${institutions}" var="v">
               <div class="form-group form-group--checkbox" id="institutionResult">
@@ -121,18 +120,22 @@
 
                 <div class="form-group form-group--inline">
                   <label> Ulica <form:input path="street"/> </label>
+                  <form:errors path="street" cssClass="error" cssStyle="color: darkred; background: #ebebeb" element="div"/>
                 </div>
 
                 <div class="form-group form-group--inline">
                   <label> Miasto  <form:input path="city"/> </label>
+                  <form:errors path="city" cssClass="error" cssStyle="color: darkred; background: #ebebeb" element="div"/>
                 </div>
 
                 <div class="form-group form-group--inline">
                   <label>  Kod pocztowy  <form:input path="zipCode" /> </label>
+                  <form:errors path="zipCode" cssClass="error" cssStyle="color: darkred; background: #ebebeb" element="div"/>
                 </div>
 
                 <div class="form-group form-group--inline">
                   <label> Numer telefonu <form:input path="phone" /> </label>
+                  <form:errors path="phone" cssClass="error" cssStyle="color: darkred; background: #ebebeb" element="div"/>
                 </div>
               </div>
 
@@ -140,10 +143,12 @@
                 <h4>Termin odbioru</h4>
                 <div class="form-group form-group--inline">
                   <label> Data <form:input type="date" path="pickUpDate"/> </label>
+                  <form:errors path="pickUpDate" cssClass="error" cssStyle="color: darkred; background: #ebebeb" element="div"/>
                 </div>
 
                 <div class="form-group form-group--inline">
                   <label> Godzina   <form:input type="time" path="pickUpTime" /> </label>
+                  <form:errors path="pickUpTime" cssClass="error" cssStyle="color: darkred; background: #ebebeb" element="div"/>
                 </div>
 
                 <div class="form-group form-group--inline">
@@ -151,6 +156,7 @@
                     Uwagi dla kuriera
                     <form:textarea path="pickUpComment"/>
                   </label>
+                  <form:errors path="pickUpComment" cssClass="error" cssStyle="color: darkred; background: #ebebeb" element="div"/>
                 </div>
               </div>
             </div>
