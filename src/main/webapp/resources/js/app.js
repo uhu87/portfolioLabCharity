@@ -160,16 +160,32 @@ document.addEventListener("DOMContentLoaded", function() {
         }
       });
 
-      /*const categories = document.getElementsByName("categories");
+
+      //_________________________CATEGORIES________________________________________
+        const categories = document.getElementsByName("categories");
+        for (let i = 0; i < categories.length; i++) {
+          if(categories[i].nextElementSibling.getAttribute('type')==='hidden'){
+            categories[i].nextElementSibling.remove();
+          }
+        }
+
+      const quantityCategoryResult = document.getElementById("quantity-category-result");
+      let finalResult = '';
       for (let i = 0; i < categories.length; i++) {
-        categories[i].nextElementSibling.remove(categories);
-      }*/
+        if(categories[i].checked){
+
+          finalResult= finalResult+categories[i].nextElementSibling.nextElementSibling.innerText+', ';
+        }
+      }
+
+
+      // ____________________QUANTITY and CATEGORIES RESULT __________________
+      quantityCategoryResult.innerText='Ilość worków: ' + document.getElementById("quantity").value
+          +' Kategorie oddanych rzeczy: '+finalResult
 
 
 
-      const quantity = document.getElementById("quantity-result");
-      quantity.innerText=document.getElementById("quantity").value;
-
+      //__________________________________INSTITUTION____________________________
       const institution = document.getElementById("institution");
       const results = document.querySelectorAll("#institutionResult")
 
@@ -181,6 +197,7 @@ document.addEventListener("DOMContentLoaded", function() {
           }
       )
 
+      //__________________________________SUMMARY ADDRESS AND TIME____________________________
       const formData = document.querySelectorAll("div.form-section--column");
       const column1 = formData[2].querySelectorAll('li')
       column1[0].innerText=document.getElementById("street").value;

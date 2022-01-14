@@ -58,10 +58,14 @@ public class Donation {
     @NotEmpty(message = "Pole wymagane")
     private String phone;
 
+    @ManyToOne
+    @JoinColumn(name = "user")
+    private User user;
+
     public Donation() {
     }
 
-    public Donation(Long id, Integer quantity, List<Category> categories, Institution institution, String street, String city, String zipCode, LocalDate pickUpDate, LocalTime pickUpTime, String pickUpComment, String phone) {
+    public Donation(Long id, Integer quantity, List<Category> categories, Institution institution, String street, String city, String zipCode, LocalDate pickUpDate, LocalTime pickUpTime, String pickUpComment, String phone, User user) {
         this.id = id;
         this.quantity = quantity;
         this.categories = categories;
@@ -73,6 +77,7 @@ public class Donation {
         this.pickUpTime = pickUpTime;
         this.pickUpComment = pickUpComment;
         this.phone = phone;
+        this.user = user;
     }
 
     public Long getId() {
@@ -163,5 +168,11 @@ public class Donation {
         this.phone = phone;
     }
 
+    public User getUser() {
+        return user;
+    }
 
+    public void setUser(User user) {
+        this.user = user;
+    }
 }

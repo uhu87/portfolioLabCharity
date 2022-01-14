@@ -176,7 +176,7 @@
                 <ul>
                   <li>
                     <span class="icon icon-bag"></span>
-                    <span class="summary--text" id="quantity-result"
+                    <span class="summary--text" id="quantity-category-result"
                       ></span
                     >
                   </li>
@@ -206,7 +206,11 @@
                   <ul>
                     <li>13/12/2018</li>
                     <li>15:40</li>
-                    <li>Brak uwag</li>
+                    <li>  <textarea
+                            name="message"
+                            placeholder="Wiadomość"
+                            rows="1"
+                    ></textarea></li>
                   </ul>
                 </div>
               </div>

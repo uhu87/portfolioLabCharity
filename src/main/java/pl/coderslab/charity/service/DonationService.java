@@ -1,9 +1,13 @@
 package pl.coderslab.charity.service;
 
 
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Service;
+import pl.coderslab.charity.entity.CurrentUser;
 import pl.coderslab.charity.entity.Donation;
+import pl.coderslab.charity.entity.User;
 import pl.coderslab.charity.repository.DonationRepository;
+import pl.coderslab.charity.repository.UserRepository;
 
 import java.util.List;
 
@@ -11,9 +15,13 @@ import java.util.List;
 public class DonationService {
 
     private final DonationRepository donationRepository;
+    private final UserService userService;
+    private final UserRepository userRepository;
 
-    public DonationService(DonationRepository donationRepository) {
+    public DonationService(DonationRepository donationRepository, UserService userService, UserRepository userRepository) {
         this.donationRepository = donationRepository;
+        this.userService = userService;
+        this.userRepository = userRepository;
     }
 
 
@@ -28,5 +36,21 @@ public class DonationService {
 
     public int sumOfDonations(){
         return donationRepository.sumOfDonations();
+    }
+
+    public int sumOfUserQuantities(@AuthenticationPrincipal CurrentUser currentUser){
+        return donationRepository.sumOfUserQuantities(currentUser.getUser().getId());
+    }
+
+    public int sumOfUserDonations(@AuthenticationPrincipal CurrentUser currentUser){
+        return donationRepository.sumOfUserDonations(currentUser.getUser().getId());
+    }
+
+
+
+    public void saveDonation(Donation donation, @AuthenticationPrincipal CurrentUser customUser ){
+        User entityUser = customUser.getUser();
+        donation.setUser(entityUser);
+        donationRepository.save(donation);
     }
 }
