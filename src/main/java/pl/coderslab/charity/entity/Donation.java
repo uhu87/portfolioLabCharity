@@ -62,6 +62,8 @@ public class Donation {
     @JoinColumn(name = "user")
     private User user;
 
+    private String test;
+
     public Donation() {
     }
 
@@ -78,6 +80,14 @@ public class Donation {
         this.pickUpComment = pickUpComment;
         this.phone = phone;
         this.user = user;
+    }
+
+    public String getTest() {
+        return test;
+    }
+
+    public void setTest(String test) {
+        this.test = test;
     }
 
     public Long getId() {
