@@ -9,6 +9,7 @@ import pl.coderslab.charity.entity.User;
 import pl.coderslab.charity.repository.DonationRepository;
 import pl.coderslab.charity.repository.UserRepository;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
@@ -46,9 +47,8 @@ public class DonationService {
         return donationRepository.sumOfUserDonations(currentUser.getUser().getId());
     }
 
-
-
-    public void saveDonation(Donation donation, @AuthenticationPrincipal CurrentUser customUser ){
+    @Transactional
+    public void saveDonation(Donation donation, CurrentUser customUser ){
         User entityUser = customUser.getUser();
         donation.setUser(entityUser);
         donationRepository.save(donation);
