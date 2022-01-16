@@ -10,7 +10,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
 @ComponentScan(basePackages = "pl.coderslab")
-@EnableJpaRepositories(basePackages = "pl.coderslab.charity.repository")
+/*@EnableJpaRepositories(basePackages = "pl.coderslab.charity.repository")*/
 public class CharityApplication {
 
 

@@ -1,6 +1,8 @@
 package pl.coderslab.charity;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
+
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Component;
@@ -22,7 +24,7 @@ public class EmailServiceImpl {
         message.setSubject(subject);
         message.setText(text);
         mailSender.send(message);
-        System.out.println("Mail send");
+        System.out.println("Mail sent");
 
     }
 
