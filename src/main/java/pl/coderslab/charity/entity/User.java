@@ -13,25 +13,27 @@ public class User {
     @Column(nullable = false, unique = true, length = 60)
     private String username;
     private String password;
-    private int enabled;
+
+    private boolean enabled = false;
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles;
-
     private String email;
+
 
     public User() {
     }
 
-    public User(Long id, String username, String password, int enabled, Set<Role> roles, String email) {
+    public User(Long id, String username, String password, boolean enabled, Set<Role> roles, String email) {
         this.id = id;
         this.username = username;
         this.password = password;
         this.enabled = enabled;
         this.roles = roles;
-        this.email=email;
+        this.email = email;
     }
+
 
     public String getEmail() {
         return email;
@@ -65,11 +67,12 @@ public class User {
         this.password = password;
     }
 
-    public int getEnabled() {
+
+    public Boolean getEnabled() {
         return enabled;
     }
 
-    public void setEnabled(int enabled) {
+    public void setEnabled(Boolean enabled) {
         this.enabled = enabled;
     }
 
@@ -79,5 +82,17 @@ public class User {
 
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", enabled=" + enabled +
+                ", roles=" + roles +
+                ", email='" + email + '\'' +
+                '}';
     }
 }

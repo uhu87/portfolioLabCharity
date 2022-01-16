@@ -25,4 +25,16 @@ public class Sender {
     }
 
 
+ /*   @GetMapping("/register")
+    @ResponseBody
+    public String send() {
+
+        service.sendSimpleMessage("lukaszsowa1@gmail.com", "test", "test");
+
+        return "wyslane";
+    }*/
+
+
+
+
 }

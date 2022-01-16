@@ -2,10 +2,7 @@ package pl.coderslab.charity.controller;
 
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import pl.coderslab.charity.entity.User;
 import pl.coderslab.charity.service.UserService;
 
@@ -26,14 +23,17 @@ public class LoginController {
 
     @GetMapping("/create-user")
     @ResponseBody
-    public String createUser() {
+    public String createUser(@RequestParam String username) {
         User user = new User();
-        user.setUsername("user3");
-        user.setPassword("user1");
-        user.setEmail("user3@email.com");
+        user.setUsername(username);
+        user.setPassword("user");
+        user.setEmail("lukaszsowa1@email.com");
         userService.saveUser(user);
         return "zalozone konto";
     }
+
+
+
 
 
 
