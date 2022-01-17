@@ -25,6 +25,9 @@ public class User {
     public User() {
     }
 
+
+
+
     public User(Long id, String username, String password, boolean enabled, Set<Role> roles, String email) {
         this.id = id;
         this.username = username;
@@ -67,12 +70,11 @@ public class User {
         this.password = password;
     }
 
-
-    public Boolean getEnabled() {
+    public boolean isEnabled() {
         return enabled;
     }
 
-    public void setEnabled(Boolean enabled) {
+    public void setEnabled(boolean enabled) {
         this.enabled = enabled;
     }
 

@@ -41,21 +41,4 @@ public class UserServiceImpl implements UserService {
         userRepository.save(user);
     }
 
-
- /*   CurrentUser currentUser;
-
-    public CurrentUser getCurrentUser() {
-        return currentUser;
-    }
-
-    String token = UUID.randomUUID().toString();
-    ConfirmationToken confirmationToken = new ConfirmationToken(
-
-            token,
-            LocalDateTime.now(),
-            LocalDateTime.now().plusMinutes(15),
-            getCurrentUser().getUser()
-    );*/
-
-
 }

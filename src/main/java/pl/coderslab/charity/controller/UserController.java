@@ -24,17 +24,12 @@ public class UserController {
 
     @GetMapping("/userMenu")
     public String homeAction(Model model, @AuthenticationPrincipal CurrentUser currentUser){
+
         model.addAttribute("sumOfQuantities", donationService.sumOfUserQuantities(currentUser));
         model.addAttribute("sumOfDonations", donationService.sumOfUserDonations(currentUser));
         return "index";
     }
 
-
-    @GetMapping("/register")
-    public String register(Model model){
-
-        return "register";
-    }
 
 
     @ModelAttribute("institutions")
