@@ -20,7 +20,7 @@
 
         <ul>
             <li><a href="resources/css/style.css" class="btn btn--without-border active">Start</a></li>
-            <li><a href="resources/css/style.css" class="btn btn--without-border">O co chodzi?</a></li>
+            <li><a href="#aboutUs" class="btn btn--without-border">O co chodzi?</a></li>
             <li><a href="resources/css/style.css" class="btn btn--without-border">O nas</a></li>
             <li><a href="resources/css/style.css" class="btn btn--without-border">Fundacje i organizacje</a></li>
             <li><a href="resources/css/style.css" class="btn btn--without-border">Kontakt</a></li>
@@ -86,7 +86,7 @@
     <a href="/register" class="btn btn--large">Załóż konto</a>
 </section>
 
-<section class="about-us">
+<section id="aboutUs" class="about-us">
     <div class="about-us--text">
         <h2>O nas</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas vitae animi rem pariatur incidunt libero
