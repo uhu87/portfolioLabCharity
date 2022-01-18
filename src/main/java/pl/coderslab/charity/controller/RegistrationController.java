@@ -48,7 +48,7 @@ public class RegistrationController {
                 userService.findByUserName(user.getUsername()));
         confirmationTokenService.saveConfirmationToken(confirmationToken);
 
-        service.sendSimpleMessage(user.getEmail(), "Potwierdz rejestracje na ChartiyApp",
+        service.sendSimpleMessage(user.getEmail(), "Potwierdź rejestracje na CharityApp",
 
                 "http://localhost:8080/confirmRegistration?token="+confirmationToken.getToken());
         return "redirect:/EmailSentInfo";

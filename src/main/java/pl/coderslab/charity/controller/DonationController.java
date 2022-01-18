@@ -140,8 +140,9 @@ public class DonationController {
                 "poniżej znajduje się podsumowanie Twojej darowizny. </br>\n" +
                 "<li>Ilość worków: " +donation.getQuantity()+ "</li>\n" +
                 "<li>Kategorie darów: " + donationCategories.stream()
+                .map(c->c.toString()+", ")
                 .collect(Collectors.toList())
-
+                +"</li>\n"
                 +"<li>Adres: " +donation.getStreet()+ ", "+donation.getCity()+
                 ", "+donation.getZipCode()+"</li>\n" +
                 "<li>Uwagi dla kuriera: "+donation.getPickUpComment()+"</li>\n" +

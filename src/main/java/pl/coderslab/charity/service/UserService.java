@@ -14,6 +14,7 @@ import java.util.UUID;
 @Service
 public interface UserService {
 
+
     User findByUserName(String name);
 
     @Transactional
