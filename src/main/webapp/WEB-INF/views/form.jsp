@@ -119,8 +119,8 @@
                 <h4>Adres odbioru</h4>
 
                 <div class="form-group form-group--inline">
-                  <label> Ulica <form:input path="street"/> </label>
-                  <form:errors path="street" cssClass="error" cssStyle="color: darkred; background: #ebebeb" element="div"/>
+                  <label> Ulica <form:input name="street" path="street"/> </label>
+                  <form:errors path="street"  cssClass="error" cssStyle="color: darkred; background: #ebebeb" element="div"/>
                 </div>
 
                 <div class="form-group form-group--inline">

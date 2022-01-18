@@ -10,7 +10,10 @@ import pl.coderslab.charity.entity.Institution;
 import pl.coderslab.charity.service.DonationService;
 import pl.coderslab.charity.service.InstitutionService;
 
+import javax.persistence.criteria.CriteriaBuilder;
 import java.util.List;
+import java.util.Optional;
+
 @Controller
 public class UserController {
 
@@ -23,9 +26,18 @@ public class UserController {
     }
 
     @GetMapping("/userMenu")
-    public String homeAction(Model model, @AuthenticationPrincipal CurrentUser currentUser){
+    public String homeAction(Model model, @AuthenticationPrincipal CurrentUser currentUser) throws Exception {
 
-        model.addAttribute("sumOfQuantities", donationService.sumOfUserQuantities(currentUser));
+        Integer sum1 = donationService.sumOfUserQuantities(currentUser);
+
+        if(sum1==null){
+            sum1=0;
+        }
+        /*Optional<Integer> sumOptional= Optional.ofNullable(sum1);
+        Optional<Integer> sumOptional2 = Optional.of(Integer.valueOf(sum1));*/
+
+
+        model.addAttribute("sumOfQuantities", sum1);
         model.addAttribute("sumOfDonations", donationService.sumOfUserDonations(currentUser));
         return "index";
     }

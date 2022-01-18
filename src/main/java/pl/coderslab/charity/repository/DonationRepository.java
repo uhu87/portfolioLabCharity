@@ -6,6 +6,9 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import pl.coderslab.charity.entity.Donation;
 
+import javax.swing.text.html.Option;
+import java.util.Optional;
+
 
 public interface DonationRepository extends JpaRepository<Donation, Long> {
 
@@ -17,13 +20,13 @@ public interface DonationRepository extends JpaRepository<Donation, Long> {
     int sumOfDonations ();
 
 
+
     @Query(value = "select sum(quantity) from donation where User=:userId", nativeQuery = true)
-    int sumOfUserQuantities (@Param("userId") Long id);
+    Integer sumOfUserQuantities (@Param("userId") Long id);
 
 
     @Query(value = "select count(*) from donation where User=:userId", nativeQuery = true)
-    int sumOfUserDonations (@Param("userId") Long id);
-
+    Integer sumOfUserDonations (@Param("userId") Long id);
 
 
 

@@ -11,6 +11,7 @@ import pl.coderslab.charity.repository.UserRepository;
 
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class DonationService {
@@ -39,11 +40,19 @@ public class DonationService {
         return donationRepository.sumOfDonations();
     }
 
-    public int sumOfUserQuantities(@AuthenticationPrincipal CurrentUser currentUser){
+   /* public Optional<Integer> sumOfUserQuantities(CurrentUser currentUser){
         return donationRepository.sumOfUserQuantities(currentUser.getUser().getId());
     }
 
-    public int sumOfUserDonations(@AuthenticationPrincipal CurrentUser currentUser){
+    public Optional<Integer> sumOfUserDonations(CurrentUser currentUser){
+        return donationRepository.sumOfUserDonations(currentUser.getUser().getId());
+    }*/
+
+    public Integer sumOfUserQuantities(CurrentUser currentUser){
+        return donationRepository.sumOfUserQuantities(currentUser.getUser().getId());
+    }
+
+    public Integer sumOfUserDonations(CurrentUser currentUser){
         return donationRepository.sumOfUserDonations(currentUser.getUser().getId());
     }
 

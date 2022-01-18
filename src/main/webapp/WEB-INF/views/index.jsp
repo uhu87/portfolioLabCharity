@@ -16,6 +16,7 @@
             <li><a href="/userMenu" class="btn btn--small btn--without-border">Zaloguj</a></li>
             <li><a href="/register" class="btn btn--small btn--highlighted">Załóż konto</a></li>
             <li><a href="/logout" class="btn btn--small btn--without-border">Wyloguj</a></li>
+            <li><a href="/addDonation" class="btn btn--small btn--highlighted">Przygotuj paczkę</a></li>
         </ul>
 
         <ul>
