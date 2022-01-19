@@ -32,7 +32,11 @@ public class HomeController {
         return "index";
     }
 
+    @GetMapping("/")
+    public String redirect(){
 
+        return "redirect:/homePage";
+    }
 
 
     @ModelAttribute("institutions")

@@ -15,6 +15,7 @@ import pl.coderslab.charity.entity.User;
 import pl.coderslab.charity.repository.ConfirmationTokenRepository;
 import pl.coderslab.charity.repository.UserRepository;
 import pl.coderslab.charity.service.ConfirmationTokenService;
+import pl.coderslab.charity.service.RegistrationService;
 import pl.coderslab.charity.service.UserService;
 
 import java.time.LocalDateTime;
@@ -25,19 +26,21 @@ public class ForgottenPasswordController {
 
     @Autowired
     private EmailServiceImpl service;
-    public UserService userService;
-    public UserRepository userRepository;
-    public ConfirmationTokenService confirmationTokenService;
-    public ConfirmationTokenRepository confirmationTokenRepository;
-    public UserServiceImpl userServiceImpl;
+    private UserService userService;
+    private UserRepository userRepository;
+    private ConfirmationTokenService confirmationTokenService;
+    private ConfirmationTokenRepository confirmationTokenRepository;
+    private UserServiceImpl userServiceImpl;
+    private RegistrationService registrationService;
 
-    public ForgottenPasswordController(EmailServiceImpl service, UserService userService, UserRepository userRepository, ConfirmationTokenService confirmationTokenService, ConfirmationTokenRepository confirmationTokenRepository, UserServiceImpl userServiceImpl) {
+    public ForgottenPasswordController(EmailServiceImpl service, UserService userService, UserRepository userRepository, ConfirmationTokenService confirmationTokenService, ConfirmationTokenRepository confirmationTokenRepository, UserServiceImpl userServiceImpl, RegistrationService registrationService) {
         this.service = service;
         this.userService = userService;
         this.userRepository = userRepository;
         this.confirmationTokenService = confirmationTokenService;
         this.confirmationTokenRepository = confirmationTokenRepository;
         this.userServiceImpl = userServiceImpl;
+        this.registrationService = registrationService;
     }
 
     @GetMapping("/newPasswordSent")
@@ -77,16 +80,10 @@ public class ForgottenPasswordController {
     @GetMapping("/changePassword")
     public String changePassword(@RequestParam String token, Model model){
 
-        ConfirmationToken confirmationToken = confirmationTokenRepository.findByToken(token)
-                .orElseThrow(() ->
-                        new IllegalStateException("token not found"));
 
-        model.addAttribute("user", confirmationToken.getUser());
-        if(confirmationTokenService.findConfirmationToken(token)!=null){
-            return "newPasswordForm";
-        } else if (confirmationTokenService.findConfirmationToken(token)==null){
-            return "nieprawidlowy link";
-        } return "brak";
+        registrationService.confirmPasswordToken(token, model);
+
+        return "newPasswordForm";
     }
     @PostMapping("/changePassword")
     @ResponseBody

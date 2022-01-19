@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import pl.coderslab.charity.entity.CurrentUser;
 import pl.coderslab.charity.entity.Institution;
+import pl.coderslab.charity.entity.User;
 import pl.coderslab.charity.service.DonationService;
 import pl.coderslab.charity.service.InstitutionService;
 
@@ -28,18 +29,20 @@ public class UserController {
     @GetMapping("/userMenu")
     public String homeAction(Model model, @AuthenticationPrincipal CurrentUser currentUser) throws Exception {
 
-        Integer sum1 = donationService.sumOfUserQuantities(currentUser);
+        Optional<Integer> sum1 = donationService.sumOfUserQuantities(currentUser);
 
-        if(sum1==null){
-            sum1=0;
-        }
-        /*Optional<Integer> sumOptional= Optional.ofNullable(sum1);
-        Optional<Integer> sumOptional2 = Optional.of(Integer.valueOf(sum1));*/
-
-
-        model.addAttribute("sumOfQuantities", sum1);
+        model.addAttribute("sumOfQuantities", sum1.orElse(0));
         model.addAttribute("sumOfDonations", donationService.sumOfUserDonations(currentUser));
         return "index";
+    }
+
+
+    @GetMapping("/userDonations")
+    public String userDonations(Model model, @AuthenticationPrincipal CurrentUser currentUser) {
+
+
+        model.addAttribute("userDonations", donationService.donationList(currentUser.getUser()));
+        return "userDonations";
     }
 
 

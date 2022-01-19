@@ -141,7 +141,7 @@ public class DonationController {
                 "<li>Ilość worków: " +donation.getQuantity()+ "</li>\n" +
                 "<li>Kategorie darów: " + donationCategories.stream()
                 .map(c->c.toString()+", ")
-                .collect(Collectors.toList())
+                .collect(Collectors.joining())
                 +"</li>\n"
                 +"<li>Adres: " +donation.getStreet()+ ", "+donation.getCity()+
                 ", "+donation.getZipCode()+"</li>\n" +

@@ -20,11 +20,11 @@
         </ul>
 
         <ul>
-            <li><a href="resources/css/style.css" class="btn btn--without-border active">Start</a></li>
-            <li><a href="#aboutUs" class="btn btn--without-border">O co chodzi?</a></li>
-            <li><a href="resources/css/style.css" class="btn btn--without-border">O nas</a></li>
-            <li><a href="resources/css/style.css" class="btn btn--without-border">Fundacje i organizacje</a></li>
-            <li><a href="resources/css/style.css" class="btn btn--without-border">Kontakt</a></li>
+            <li><a href="/addDonation" class="btn btn--without-border active">Start</a></li>
+            <li><a href="#steps" class="btn btn--without-border">O co chodzi?</a></li>
+            <li><a href="#aboutUs" class="btn btn--without-border">O nas</a></li>
+            <li><a href="#help" class="btn btn--without-border">Fundacje i organizacje</a></li>
+            <li><a href="#contact" class="btn btn--without-border">Kontakt</a></li>
         </ul>
     </nav>
 
@@ -58,7 +58,7 @@
     </div>
 </section>
 
-<section class="steps">
+<section id="steps" class="steps">
     <h2>Wystarczą 4 proste kroki</h2>
 
     <div class="steps--container">
@@ -98,7 +98,7 @@
     </div>
 </section>
 
-<section class="help">
+<section id="help"class="help">
     <h2>Komu pomagamy?</h2>
 
     <!-- SLIDE 1 -->

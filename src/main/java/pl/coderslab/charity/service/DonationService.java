@@ -48,7 +48,7 @@ public class DonationService {
         return donationRepository.sumOfUserDonations(currentUser.getUser().getId());
     }*/
 
-    public Integer sumOfUserQuantities(CurrentUser currentUser){
+    public Optional<Integer> sumOfUserQuantities(CurrentUser currentUser){
         return donationRepository.sumOfUserQuantities(currentUser.getUser().getId());
     }
 
@@ -61,5 +61,9 @@ public class DonationService {
         User entityUser = customUser.getUser();
         donation.setUser(entityUser);
         donationRepository.save(donation);
+    }
+
+    public List<Donation> donationList(User user){
+        return donationRepository.findAllByUser(user);
     }
 }
